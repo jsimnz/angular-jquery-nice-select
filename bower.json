@@ -1,0 +1,22 @@
+{
+  "name": "angular-jquery-nice-select",
+  "version": "0.1",
+  "homepage": "https://github.com/jsimnz/angular-jquery-nice-select",
+  "description": "An AngularJS directive for jQuery Nice Select",
+  "main": "./src/angular-nice-select.js",
+  "authors": [
+    "https://github.com/jsimnz/angular-jquery-nice-select/graphs/contributors"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": ">= 1.3",
+    "jquery-nice-select": "*"
+  },
+}

@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>AngularJS Nice Select Directive Demo</title>
+		<link rel='stylesheet' href='https://rawgit.com/hernansartorio/jquery-nice-select/master/css/style.css'>
+	</head>
+
+	<body>
+
+	<div ng-app='niceSelectDemo' ng-controller='demoController'>
+		<select id='selector' ui-nice-select ng-model='select_val'>
+		  <option data-display='butts' value="1">Some option</option>
+		  <option value="2">Another option</option>
+		  <option value="3" disabled>A disabled option</option>
+		  <option value="4">Potato</option>
+		</select>
+
+		<select ng-model='select_val'>
+		  <option value="1">Some option</option>
+		  <option value="2">Another option</option>
+		  <option value="3" disabled>A disabled option</option>
+		  <option value="4">Potato</option>
+		</select>
+
+
+		<script type='text/javascript' src='https://code.jquery.com/jquery-1.12.1.min.js'></script>
+		<script type='text/javascript' src='https://rawgit.com/hernansartorio/jquery-nice-select/master/js/jquery.nice-select.min.js'></script>
+		<script type='text/javascript' src='https://code.angularjs.org/1.5.0/angular.min.js'></script>
+		<script type='text/javascript' src='../src/angular-nice-select.js'></script>
+
+		<script type='text/javascript' src='demo.js'></script>
+	</body>
+</html>
