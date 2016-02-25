@@ -48,7 +48,6 @@ angular.module('ui.nice-select', [])
 			// update the nice select element when the ngModel changes
 			ngModel.render = function() {
 				var selectVal = ngModel.$modelValue;
-				console.log("updated model:", selectVal)
 				if (selectVal !== null && selectVal !== '' && selectHasValue(element, selectVal)) {
 	                throw new Error('ng-Model value must be a Date or Moment object - currently it is a ' + typeof date + '.');
 	            }
@@ -57,7 +56,6 @@ angular.module('ui.nice-select', [])
 
 			// watch for changes on the ngModel
 			scope.$watch('ngModel', function() {
-				console.log("model change")
 				ngModel.render()
 			})
 
