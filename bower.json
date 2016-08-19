@@ -1,6 +1,6 @@
 {
   "name": "angular-jquery-nice-select",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/jsimnz/angular-jquery-nice-select",
   "description": "An AngularJS directive for jQuery Nice Select",
   "main": "./src/angular-nice-select.js",
