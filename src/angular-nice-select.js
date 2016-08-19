@@ -16,7 +16,7 @@ angular.module('ui.nice-select', [])
 		var foundValue = false
 		angular.forEach(element.find("option"), function(childEl) {
 			var val = $(childEl).attr("value")
-			if (val == foundValue) {
+			if (val.toString() == foundValue.toString()) {
 				foundValue = true
 			}
 		})
@@ -25,7 +25,7 @@ angular.module('ui.nice-select', [])
 
 	var updateNiceSelect = function(element, val) {
 		// get select option val representation
-		var optionEl = element.find("[value=" + val + "]")
+		var optionEl = element.find("[value=\"" + val + "\"]")
 		var optionVal = optionEl.data("display") || optionEl.text();
 
 		var ns = element.next();
@@ -33,7 +33,7 @@ angular.module('ui.nice-select', [])
 		ns.find(".current").text(optionVal)
 		// update the selected option in niceSelects dropdown
 		ns.find(".list .selected").removeClass("selected")
-		ns.find(".list [data-value=" + val + "]").addClass("selected")
+		ns.find(".list [data-value=\"" + val + "\"]").addClass("selected")
 	}
 
 	return {
@@ -48,8 +48,9 @@ angular.module('ui.nice-select', [])
 			// update the nice select element when the ngModel changes
 			ngModel.render = function() {
 				var selectVal = ngModel.$modelValue;
+				console.log("select val:",selectVal)
 				if (selectVal !== null && selectVal !== '' && selectHasValue(element, selectVal)) {
-	                throw new Error('ng-Model value must be a Date or Moment object - currently it is a ' + typeof date + '.');
+	                throw new Error('ng-Model value can\'t be null, and must be a valid select element value');
 	            }
 	            updateNiceSelect(element, selectVal)
 			}
@@ -58,6 +59,13 @@ angular.module('ui.nice-select', [])
 			scope.$watch('ngModel', function() {
 				ngModel.render()
 			})
+
+			scope.$watch(
+			    function () { return element[0].innerText; },
+			    function (newValue, oldValue) {
+			      element.niceSelect('update')
+			    }
+			  );
 
 			// initialize the niceSelect element on first run
 			element.niceSelect()
@@ -77,4 +85,3 @@ angular.module('ui.nice-select', [])
 	</select>
 
  */
-
